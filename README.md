@@ -1,6 +1,7 @@
 # Projeto-1---Grupo-A
 
 UC_01 — Preparar Eleição nas Urnas
+
 Função: Preparar e carregar nas urnas os dados da eleição
 Atores: Administrador
 Prioridade: Essencial
