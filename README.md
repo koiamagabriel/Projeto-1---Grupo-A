@@ -97,6 +97,7 @@ Fluxo Principal<br>
 Fluxo Secundário [FS001]<br>
  • Apuração incompleta → emitir parcial com aviso.
 
+## Diagrama de Casos de Uso
 <img src="https://github.com/koiamagabriel/Projeto-1---Grupo-A/blob/main/Diagrama%20de%20casos%20de%20uso.png" alt="Diagrama de Casos de Uso">
 
  
