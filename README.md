@@ -79,3 +79,7 @@ Fluxo Secundário [FS001]
  • Apuração incompleta → emitir parcial com aviso.
 
 
+
+ 
+
+
