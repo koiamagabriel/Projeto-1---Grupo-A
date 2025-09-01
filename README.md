@@ -1,82 +1,100 @@
 # Projeto-1---Grupo-A
 
-UC_01 — Preparar Eleição nas Urnas
+## UC_01 — Preparar Eleição nas Urnas
 
-Função: Preparar e carregar nas urnas os dados da eleição
-Atores: Administrador
-Prioridade: Essencial
-Pré-condição: Urnas cadastradas/validadas; base com candidatos e eleitores padronizados para todas as urnas do mesmo processo.
+Função: Preparar e carregar nas urnas os dados da eleição<br>
+Atores: Administrador<br>
+Prioridade: Essencial<br>
+Pré-condição: Urnas cadastradas/validadas; base com candidatos e eleitores padronizados para todas as urnas do mesmo processo.<br>
 Pós-condição: Urnas autenticadas e carregadas, prontas para operar de forma autônoma.
+
 Fluxo Principal
- • Administrador seleciona urnas-alvo.
- • Sistema valida urnas e compõe o pacote da eleição com cargos, candidatos padronizados e eleitores.
- • Sistema carrega/autentica o pacote nas urnas.
+ • Administrador seleciona urnas-alvo.<br>
+ • Sistema valida urnas e compõe o pacote da eleição com cargos, candidatos padronizados e eleitores.<br>
+ • Sistema carrega/autentica o pacote nas urnas.<br>
  • Sistema confirma conclusão.
+ 
 Fluxo Secundário [FS001]
  • Inconsistência de dados → sistema bloqueia o carregamento e notifica.
 
-UC_02 — Identificar Eleitor
-Função: Confirmar o número de inscrição/documento do eleitor para iniciar a votação.
-Atores: Eleitor
-Prioridade: Essencial
-Pré-condição: Urna carregada com listas de eleitores.
+## UC_02 — Identificar Eleitor
+
+Função: Confirmar o número de inscrição/documento do eleitor para iniciar a votação.<br>
+Atores: Eleitor<br>
+Prioridade: Essencial<br>
+Pré-condição: Urna carregada com listas de eleitores.<br>
 Pós-condição: Eleitor identificado e liberado para votar.
-Fluxo Principal
- • Eleitor informa nº de inscrição/documento.
- • Sistema localiza o registro e exibe identificação.
- • Sistema valida elegibilidade do eleitor .
-Fluxo Secundário [FS001]
+
+Fluxo Principal<br>
+ • Eleitor informa nº de inscrição/documento.<br>
+ • Sistema localiza o registro e exibe identificação.<br>
+ • Sistema valida elegibilidade do eleitor.
+ 
+Fluxo Secundário [FS001]<br>
  • Documento não encontrado → negar prosseguimento; orientar atendimento.
-Fluxo Secundário [FS002]
+ 
+Fluxo Secundário [FS002]<br>
  • Eleitor já votou → bloquear votação.
 
-UC_03 — Registrar Voto
-Função: Permitir ao eleitor registrar seu voto para cada cargo (até 8), com confirmação e opções de corrigir, branco e nulo.
-Atores: Eleitor
-Prioridade: Essencial
-Pré-condição: UC_02 concluído; urna operando autonomamente após ter sido autenticada e carregada.
+## UC_03 — Registrar Voto
+
+Função: Permitir ao eleitor registrar seu voto para cada cargo (até 8), com confirmação e opções de corrigir, branco e nulo.<br>
+Atores: Eleitor<br>
+Prioridade: Essencial<br>
+Pré-condição: UC_02 concluído; urna operando autonomamente após ter sido autenticada e carregada.<br>
 Pós-condição: Voto do eleitor gravado; eleitor marcado como “votou”
-Fluxo Principal
- • Sistema apresenta a sequência de cargos .
- • Para cada cargo:
-  – Eleitor digita o número do candidato.
-  – Sistema mostra dados do candidato .
-  – Eleitor confirma o voto.
+
+Fluxo Principal<br>
+ • Sistema apresenta a sequência de cargos .<br>
+ • Para cada cargo:<br>
+  – Eleitor digita o número do candidato.<br>
+  – Sistema mostra dados do candidato .<br>
+  – Eleitor confirma o voto.<br>
  • Ao final da sequência, sistema registra conclusão do voto do eleitor.
-Fluxo Secundário [FS001] — Corrigir Escolha
+ 
+Fluxo Secundário [FS001] — Corrigir Escolha<br>
  • Antes de confirmar um cargo, eleitor solicita corrigir e digita novamente.
-Fluxo Secundário [FS002] — Voto em Branco
+ 
+Fluxo Secundário [FS002] — Voto em Branco<br>
  • Eleitor opta por branco para o cargo atual e confirma.
-Fluxo Secundário [FS003] — Voto Nulo
+ 
+Fluxo Secundário [FS003] — Voto Nulo<br>
  • Número digitado não corresponde a candidato válido; sistema indica nulo e permite confirmar.
-Fluxo Secundário [FS004] — Elegibilidade negada
+ 
+Fluxo Secundário [FS004] — Elegibilidade negada<br>
  • Caso o sistema detecte, antes da gravação final, que o eleitor já votou , cancela o registro e orienta atendimento.
 
-UC_04 — Encerrar Votação e Enviar Apuração
-Função: Encerrar a votação na urna e transmitir a apuração à central quando a comunicação for solicitada.
-Atores: Administrador
-Prioridade: Importante
-Pré-condição: Período de votação finalizado; apuração local consolidada.
+## UC_04 — Encerrar Votação e Enviar Apuração
+
+Função: Encerrar a votação na urna e transmitir a apuração à central quando a comunicação for solicitada.<br>
+Atores: Administrador<br>
+Prioridade: Importante<br>
+Pré-condição: Período de votação finalizado; apuração local consolidada.<br>
 Pós-condição: Apuração enviada contendo total por cargo e contagens de brancos, nulos e ausentes.
-Fluxo Principal
- • Operador encerra a votação.
- • Sistema consolida votos por cargo e contabiliza brancos, nulos e ausentes.
- • Sistema solicita comunicação e envia a apuração à central.
+
+Fluxo Principal<br>
+ • Operador encerra a votação.<br>
+ • Sistema consolida votos por cargo e contabiliza brancos, nulos e ausentes.<br>
+ • Sistema solicita comunicação e envia a apuração à central.<br>
  • Sistema registra confirmação de envio/recebimento.
-Fluxo Secundário [FS001]
+ 
+Fluxo Secundário [FS001]<br>
  • Falha de comunicação → armazenar e re-tentar até sucesso (política de reenvio).
 
-UC_05 — Totalizar e Divulgar Resultados
-Função: Totalizar resultados por urna e no geral, gerando tabelas/gráficos.
-Atores: Administrador
-Prioridade: Importante
-Pré-condição: Apurações recebidas das urnas.
+## UC_05 — Totalizar e Divulgar Resultados
+
+Função: Totalizar resultados por urna e no geral, gerando tabelas/gráficos.<br>
+Atores: Administrador<br>
+Prioridade: Importante<br>
+Pré-condição: Apurações recebidas das urnas.<br>
 Pós-condição: Relatórios por urna e totalizados; com brancos, nulos e ausentes.
-Fluxo Principal
- • Administrador escolhe o escopo.
- • Sistema totaliza e produz tabelas ou gráficos.
+
+Fluxo Principal<br>
+ • Administrador escolhe o escopo.<br>
+ • Sistema totaliza e produz tabelas ou gráficos.<br>
  • Sistema disponibiliza/expõe os relatórios.
-Fluxo Secundário [FS001]
+ 
+Fluxo Secundário [FS001]<br>
  • Apuração incompleta → emitir parcial com aviso.
 
 
