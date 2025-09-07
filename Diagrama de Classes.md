@@ -5,4 +5,4 @@
 
 
 <img src="https://raw.githubusercontent.com/koiamagabriel/Projeto-1---Grupo-A/main/DiagramaDeClassesProj1.png"
-     alt="Diagrama de Classes" width="700">
+     alt="Diagrama de Classes">
